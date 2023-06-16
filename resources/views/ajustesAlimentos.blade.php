@@ -17,7 +17,7 @@ justify-content: center; margin-bottom:10px">
     margin-left: 30px;"><u><a href="{{ route('ajustesAlimentos') }}"
                                 style="color:#6A75ED;"> Alimentos</a> </u> </li>
                     <li style=" display: inline;
-    margin-left: 30px;"> <a hidden
+    margin-left: 30px;"> <a 
                             href="{{ route('ajustesIngredientes') }}">Ingredientes</a></li>
 
                 </ul>

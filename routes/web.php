@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\controladorIngredientes;
 use App\Http\Controllers\controladorAlimentos;
+use App\Http\Controllers\StripePaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,22 @@ Route::middleware([
     Route::get('/menuSnacks', function () {
         return view('menuSnacks');
     })->name('menuSnacks');
+
+
+    //Stripe
+    //Formulario pago 
+    Route::get('/pagar',[StripePaymentController::class,'paymentStripe'
+    ])->name('paymentForm');
+    //Procesar Pago
+    Route::post('/pagado',[StripePaymentController::class,'postPaymentStripe'
+    ])->name('postPaymentForm');
+
+    
+
+
+
+
+
 
     
     // Alimentos
