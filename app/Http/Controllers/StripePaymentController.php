@@ -40,6 +40,7 @@ class StripePaymentController extends Controller
                  
                 if($charge['status'] == 'succeeded') {
                     //Redirección exitosa, implementar alert
+                    //SweetAlert
                     return redirect()->route('menuAlimentos');
                 } else {
                     return redirect()->route('paymentForm')->with('error','Money not add in wallet!');
