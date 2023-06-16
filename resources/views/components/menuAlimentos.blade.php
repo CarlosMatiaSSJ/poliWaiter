@@ -1,3 +1,11 @@
+@if (session()->has('pagado'))
+        {!! "<script>Swal.fire(
+                'Pago Procesado!',
+                '¡Verifica el estado de tu orden en Mis Pedidos!',
+                'success'
+              )</script>" !!}
+@endif
+
 <ul id="navMenu" class="mt-8 text-2xl font-medium text-gray-900 dark:text-white"
     style="display: flex;
 justify-content: center; margin-bottom:10px">

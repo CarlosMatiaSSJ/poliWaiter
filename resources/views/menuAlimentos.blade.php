@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Menú de Alimentos') }}
         </h2>
