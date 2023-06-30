@@ -107,5 +107,13 @@ class controladorIngredientes extends Controller
         return redirect('/ajustes/ingredientes');
     }
 
-    
+     //Exportar los alimentos a pdf
+     public function export()
+     {
+         $consultaIngredientes = DB::table('ingredientes')->get();
+     
+         $pdf = \PDF::loadView('ingredientesExport', compact('consultaIngredientes'));
+     
+         return $pdf->download('Ingredientes.pdf');
+     }
 }
