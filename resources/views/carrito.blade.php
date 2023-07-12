@@ -22,6 +22,57 @@ margin-left: 30px;"> <a hidden
             </ul>
 
                 <div class="relative overflow-x-auto">
+                
+ //Cronometro
+ <h1>Cronómetro</h1>
+    <div id="cronometro">00:00</div>
+
+       <script>
+        // Variables para el cronómetro
+        var minutos = 2;
+        var segundos = 0;
+
+        // Función para actualizar el cronómetro
+        function actualizarCronometro() {
+            var cronometroElemento = document.getElementById("cronometro");
+            cronometroElemento.textContent = formatTime(minutos) + ":" + formatTime(segundos);
+        }
+
+        // Función para formatear los valores de tiempo a dos dígitos
+        function formatTime(time) {
+            return time < 10 ? "0" + time : time;
+        }
+
+        
+        function redirigirAVista() {
+            window.location.href = '//VISTA A LA QUE VA REDERIGIR';
+        }
+
+        // Función para actualizar el tiempo restante y comprobar si se ha alcanzado el límite
+        function actualizarTiempoRestante() {
+            segundos--;
+            if (segundos < 0) {
+                segundos = 59;
+                minutos--;
+            }
+            if (minutos === 0 && segundos === 0) {
+                redirigirAVista();
+            }
+            actualizarCronometro();
+        }
+
+        // Función para iniciar el cronómetro
+        function iniciarCronometro() {
+            actualizarCronometro();
+            setInterval(actualizarTiempoRestante, 1000); 
+        }
+
+        // Iniciar el cronómetro al cargar la página
+        window.onload = iniciarCronometro;
+    </script>
+    
+    //Termina el Cornometro
+
       
 
           @if (count($productos) > 0)
