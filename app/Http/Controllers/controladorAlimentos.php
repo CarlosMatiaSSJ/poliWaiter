@@ -40,8 +40,8 @@ class controladorAlimentos extends Controller
         DB::table('alimentos')->insert([
             "descripcion" => $request->input('descripcion'),
             "precioVenta" => $request->input('precioVenta'),
-            "tipoAlimento" => $request->input('tipo')
-           
+            "tipoAlimento" => $request->input('tipo'),
+            "imagenAlimento" => file_get_contents($request->file('imagen')->getRealPath()),
         ]);
 
         return redirect('/ajustes/alimentos');
