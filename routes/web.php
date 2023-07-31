@@ -32,9 +32,8 @@ Route::middleware([
 
 
     //Menús
-    Route::get('/menuAlimentos', function () {
-        return view('menuAlimentos');
-    })->name('menuAlimentos');
+    Route::get('/menu/alimentos',[controladorAlimentos::class,'mostrarMenu'])->name('menuAlimentos');
+
 
     Route::get('/menuBebidas', function () {
         return view('menuBebidas');

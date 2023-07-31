@@ -112,6 +112,13 @@ class controladorAlimentos extends Controller
         return $pdf->download('Alimentos.pdf');
     }
 
+
+    //Mostrar menú completo
+    public function mostrarMenu()
+    {
+        $consultaAlimentos = DB::table('alimentos')->get();
+        return view('menuAlimentos', compact('consultaAlimentos'));
+    }
     
     public function carrito(){
     
