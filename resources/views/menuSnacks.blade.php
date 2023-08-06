@@ -1,3 +1,27 @@
+<script>
+    function agregarAlCarrito(nombre, precio) {
+        const formData = new FormData();
+        formData.append('nombre', nombre);
+        formData.append('precio', precio);
+
+        fetch('/agregar-al-carrito', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error al agregar al carrito:', error);
+            });
+        alert('Se ha agregado el producto al carrito ');
+    }
+</script>
+
 <x-app-layout>
     <x-slot name="header">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -11,25 +35,23 @@
             <div class="bg-white dark:bg-orangess-800 overflow-hidden shadow-xl sm:rounded-lg">
                 @if (session()->has('pagado'))
                     {!! "<script>Swal.fire(
-                                                                                                            'Pago Procesado!',
-                                                                                                            '¡Verifica el estado de tu orden en Mis Pedidos!',
-                                                                                                            'success'
-                                                                                                        )</script>" !!}
+                                                                                                                                'Pago Procesado!',
+                                                                                                                                '¡Verifica el estado de tu orden en Mis Pedidos!',
+                                                                                                                                'success'
+                                                                                                                            )</script>" !!}
                 @endif
 
                 <ul id="navMenu" class="mt-8 text-2xl font-medium text-gray-900 dark:text-white"
                     style="display: flex;
 justify-content: center; margin-bottom:10px">
                     <li style=" display: inline;
-    margin-left: 30px;"><a href="{{ route('menuAlimentos') }}"
-                               >
-                                Alimentos</a>  </li>
+    margin-left: 30px;"><a href="{{ route('menuAlimentos') }}">
+                            Alimentos</a> </li>
                     <li style=" display: inline;
     margin-left: 30px;"> <a
                             href="{{ route('menuBebidas') }}">Bebidas</a></li>
                     <li style=" display: inline;
-    margin-left: 30px;"><a
-                            href="{{ route('menuSnacks') }}"
+    margin-left: 30px;"><a href="{{ route('menuSnacks') }}"
                             style="color:#6A75ED;"><u>Snacks</u></a>
                     </li>
                 </ul>
@@ -37,7 +59,7 @@ justify-content: center; margin-bottom:10px">
                 {{-- Cards del menú --}}
 
 
-            <ul style="display: flex;
+                <ul style="display: flex;
 justify-content: center; margin-bottom: 35px
 ">
 
@@ -57,13 +79,14 @@ justify-content: center; margin-bottom: 35px
                                         $imagenBase64 = base64_encode($alimento->imagenAlimento);
                                         $imagenUrl = 'data:image/png;base64,' . $imagenBase64;
                                     @endphp
-                                    <img src="{{ $imagenUrl }}" alt="muestra"
-                                        style="width: 350px; height: 350px;">
+                                    <img src="{{ $imagenUrl }}" alt="muestra" style="width: 350px; height: 350px;">
                                 </div>
                                 <div class="pie"
                                     style="background: #6A75ED; border-radius: 0 0 15px 15px; padding: 10px; text-align: center;
                 color: white;">
-                                    <a href="#">Agregar al carrito </a>
+                                    <a href="#"
+                                        onclick="agregarAlCarrito('{{ $alimento->descripcion }}', '{{ $alimento->precioVenta }}')">Agregar
+                                        al carrito </a>
                                 </div>
                             </div>
                         </div>
