@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\controladorIngredientes;
 use App\Http\Controllers\controladorAlimentos;
+use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\StripePaymentController;
 
 /*
@@ -74,7 +75,9 @@ Route::middleware([
     //Export
     Route::get('alimentos/exportar',[controladorAlimentos::class,'export'])->name('alimento.export');
     //Carrito
-    Route::get('carrito',[controladorAlimentos::class,'carrito'])->name('carrito');
+    Route::get('carrito',[CarritoController::class,'mostrarCarrito'])->name('carrito');
+    //Agregar producto al carrito 
+    Route::post('/agregar-al-carrito',[CarritoController::class,'agregarAlCarrito'])->name('agregar-al-carrito');
 
 
     //Ingredientes

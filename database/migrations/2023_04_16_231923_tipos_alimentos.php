@@ -18,7 +18,7 @@ return new class extends Migration
 
         });
 
-        // Insertar los registros automáticamente
+        // Insertar los registros 
         DB::table('tiposAlimentos')->insert([
             ['descripcion' => 'alimento'],
             ['descripcion' => 'bebida'],

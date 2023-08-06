@@ -63,7 +63,7 @@ justify-content: center; margin-bottom: 35px
                                 <div class="pie"
                                     style="background: #6A75ED; border-radius: 0 0 15px 15px; padding: 10px; text-align: center;
                 color: white;">
-                                    <a href="#">Comprar</a>
+                                    <a href="#">Agregar al carrito</a>
                                 </div>
                             </div>
                         </div>
