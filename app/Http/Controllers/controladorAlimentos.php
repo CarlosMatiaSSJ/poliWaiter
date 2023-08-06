@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Intervention\Image\Facades\Image;
 
 class controladorAlimentos extends Controller
 {
@@ -37,15 +38,33 @@ class controladorAlimentos extends Controller
      */
     public function store(Request $request)
     {
+        // Obtener la imagen del formulario
+    $imagen = $request->file('imagen');
+    $imagenData = file_get_contents($imagen->getRealPath());
+
+    try {
+         // Obtener la imagen del formulario
+    $imagen = $request->file('imagen');
+
+    // Comprimir la imagen antes de guardarla
+    $compressedImage = Image::make($imagen)->encode('jpg', 10); // Comprimir al 10% de calidad, puedes ajustar el valor según tus necesidades
+
+    // Obtener los bytes de la imagen comprimida
+    $imagenData = $compressedImage->getEncoded();
+        // Insertar el nuevo alimento en la base de datos
         DB::table('alimentos')->insert([
             "descripcion" => $request->input('descripcion'),
             "precioVenta" => $request->input('precioVenta'),
             "tipoAlimento" => $request->input('tipo'),
-            "imagenAlimento" => file_get_contents($request->file('imagen')->getRealPath()),
+            "imagenAlimento" => $imagenData,
         ]);
 
-        return redirect('/ajustes/alimentos');
-    }
+        // Redirigir a la página deseada después de guardar
+        return redirect('/ajustes/alimentos')->with('success', 'Alimento agregado exitosamente.');
+    } catch (\Illuminate\Database\QueryException $ex) {
+        // Mostrar el mensaje de error
+        dd($ex->getMessage());
+    }}
 
     /**
      * Display the specified resource.
@@ -114,10 +133,21 @@ class controladorAlimentos extends Controller
 
 
     //Mostrar menú completo
-    public function mostrarMenu()
+    public function mostrarMenuAlimentos()
     {
-        $consultaAlimentos = DB::table('alimentos')->get();
+        $consultaAlimentos = DB::table('alimentos')->where('tipoAlimento', 1)->get();
         return view('menuAlimentos', compact('consultaAlimentos'));
+    }
+
+    public function mostrarMenuBebidas()
+    {
+        $consultaAlimentos = DB::table('alimentos')->where('tipoAlimento', 2)->get();
+        return view('menuBebidas', compact('consultaAlimentos'));
+    }
+    public function mostrarMenuSnacks()
+    {
+        $consultaAlimentos = DB::table('alimentos')->where('tipoAlimento', 3)->get();
+        return view('menuSnacks', compact('consultaAlimentos'));
     }
     
     public function carrito(){

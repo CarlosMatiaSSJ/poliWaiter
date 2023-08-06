@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/stylesLanding.css') }}">
 <header id="header">
     <!--  Brand Logo  -->
-    <div class="navbar_img shrink-0 flex items-center">
+    <div class="navbar_img shrink-0 flex items-center ">
         <a href="{{ route('dashboard') }}">
           <img src="{{ asset('imgs/logoAzul.png') }}" alt="Logo" width="">
       </a>

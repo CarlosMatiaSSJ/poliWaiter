@@ -32,16 +32,12 @@ Route::middleware([
 
 
     //Menús
-    Route::get('/menu/alimentos',[controladorAlimentos::class,'mostrarMenu'])->name('menuAlimentos');
+    Route::get('/menu/alimentos',[controladorAlimentos::class,'mostrarMenuAlimentos'])->name('menuAlimentos');
+    Route::get('/menu/bebidas',[controladorAlimentos::class,'mostrarMenuBebidas'])->name('menuBebidas');
+    Route::get('/menu/snacks',[controladorAlimentos::class,'mostrarMenuSnacks'])->name('menuSnacks');
 
 
-    Route::get('/menuBebidas', function () {
-        return view('menuBebidas');
-    })->name('menuBebidas');
-
-    Route::get('/menuSnacks', function () {
-        return view('menuSnacks');
-    })->name('menuSnacks');
+  
 
 
     //Stripe
