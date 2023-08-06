@@ -40,6 +40,13 @@
                                                                                                                                                                             'success'
                                                                                                                                                                         )</script>" !!}
                 @endif
+                @if (session()->has('success'))
+                    {!! "<script>Swal.fire(
+                                                                                                                                                                            'Alimento agregado!',
+                                                                                                                                                                            '¡Se ha agregado el alimento a la base de datos!',
+                                                                                                                                                                            'success'
+                                                                                                                                                                        )</script>" !!}
+                @endif
 
                 <ul id="navMenu" class="mt-8 text-2xl font-medium text-gray-900 dark:text-black"
                     style="display: flex;

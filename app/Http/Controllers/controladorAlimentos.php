@@ -60,7 +60,7 @@ class controladorAlimentos extends Controller
         ]);
 
         // Redirigir a la página deseada después de guardar
-        return redirect('/ajustes/alimentos')->with('success', 'Alimento agregado exitosamente.');
+        return redirect('/menu/alimentos')->with('success', 'Alimento agregado exitosamente.');
     } catch (\Illuminate\Database\QueryException $ex) {
         // Mostrar el mensaje de error
         dd($ex->getMessage());
