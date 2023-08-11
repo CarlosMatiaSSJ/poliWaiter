@@ -6,12 +6,12 @@
     </x-slot>
 
 
-    <div class="py-12">
+    <div class="py-12" >
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" >
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg" >
                 {{-- Formulario nuevo alimento --}}
-                <form action="{{route('postPaymentForm')}}" method="post">
+                <form action="{{route('postPaymentForm')}}" method="post" style="padding:18px">
                     @csrf
                     <div class="mb-6">
                         <label for="card_no" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
