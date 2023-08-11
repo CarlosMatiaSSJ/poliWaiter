@@ -121,9 +121,9 @@
                             <x-dropdown-link href="{{ route('ajustesAlimentos') }}">
                                 {{ __('Ajustes') }}
                             </x-dropdown-link>
-                            <x-dropdown-link href="{{ route('profile.show') }}">
+                            {{--<x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Ventas') }}
-                            </x-dropdown-link>
+                            </x-dropdown-link>--}}
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">

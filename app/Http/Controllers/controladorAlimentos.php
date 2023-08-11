@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Intervention\Image\Facades\Image;
+use App\Http\Requests\ValidadorAlimentos;
+
 
 class controladorAlimentos extends Controller
 {
@@ -36,7 +38,7 @@ class controladorAlimentos extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidadorAlimentos $request)
     {
         // Obtener la imagen del formulario
     $imagen = $request->file('imagen');
@@ -86,6 +88,7 @@ class controladorAlimentos extends Controller
      */
     public function edit($id)
     {
+
         $consultaAlimentos = DB::table('alimentos')->where('id',$id)->first();
         return view('editarAlimento',compact('consultaAlimentos'));
     }
@@ -97,15 +100,15 @@ class controladorAlimentos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ValidadorAlimentos $request, $id)
     {
         DB::table('alimentos')->where('id',$id)->update([
             "descripcion" => $request->input('descripcion'),
             "tipoAlimento" => $request->input('tipo'),
             "precioVenta" => $request->input('precioVenta'),
         ]);
-
-        return redirect('/ajustes/alimentos');
+        
+        return redirect('/ajustes/alimentos')->with('success_edit', '¡Se ha actualizado el alimento en la base de datos!');
     }
 
     /**
@@ -117,7 +120,7 @@ class controladorAlimentos extends Controller
     public function destroy($id)
     {
         DB::table('alimentos')->where('id',$id)->delete();
-        return redirect('/ajustes/alimentos');
+        return redirect('/ajustes/alimentos')->with('success_delete', '¡Se ha eliminado el alimento de la base de datos!');
     }
 
 

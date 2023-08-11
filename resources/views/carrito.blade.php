@@ -39,7 +39,7 @@
                                         {{ $producto['precio'] }}
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                       {{$producto['cantidad']}}
+                                        {{$producto['cantidad']}}
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{$producto['cantidad'] * $producto['precio']}}
@@ -51,7 +51,7 @@
                     </table>
                 </div>
 
-                <div class="d-flex float-right mr-3 mt-3 mb-3">
+                <div class="d-flex float-right mr-3 mt-5 mb-3">
                     <h3>Total: ${{$total}}</h3>
                 </div>
                 <div class="d-flex float-right mr-3 mt-3 mb-3">

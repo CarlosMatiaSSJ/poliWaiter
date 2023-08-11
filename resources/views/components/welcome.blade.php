@@ -21,10 +21,11 @@
     </div>
     
 
-   
-
     <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. In delectus rerum numquam omnis sit maxime fugit eaque vitae ipsa esse, sed adipisci assumenda. Sequi eveniet autem repellat dolorum. Non, doloremque. Vero, nihil! Quis perspiciatis eos sint voluptates, consequatur quasi iste.
+        Poli-Waiter te mostrará una completa carta con todos los alimentos disponibles, 
+        tomará tu pedido y lo enviará a los cocineros, te permitirá pagar a través de una pasarela de pago segura, 
+        encargada de realizar los cobros para que puedas acudir a la cafetería sólo el tiempo necesario para recogerlo.
+        
     </p>
 </div>
 
@@ -49,7 +50,9 @@
                                     <img src="imgs/comida.avif" >
                                     <div class="capa">
                                         <h3>COMIDA</h3>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora aliquid neque harum beatae quasi sed similique doloribus officia commodi quibusdam.</p>
+                                            <p>
+                                                Descubre nuestro amplio menú de comida recién preparada a tu elección, diseñada especialmente para satisfacer tus gustos y brindarte una experiencia culinaria nutritiva con auténtico sabor casero.
+                                            </p>
                                     </div>  
                                 </figure>
                             </div>
@@ -59,7 +62,9 @@
                                     <img src="imgs/bebidas.jpg" >
                                     <div class="capa">
                                         <h3>BEBIDAS</h3>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora aliquid neque harum beatae quasi sed similique doloribus officia commodi quibusdam.</p>
+                                            <p>
+                                                AExplora nuestra extensa selección de bebidas, siempre refrescantes y cuidadosamente seleccionadas para complementar tus platillos de manera perfecta. Descubre el acompañamiento ideal para tus alimentos.
+                                            </p>
                                     </div>  
                                 </figure>
                             </div>
@@ -68,14 +73,16 @@
                                     <img src="imgs/snacks.jpg" >
                                     <div class="capa">
                                         <h3>SNACKS</h3>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora aliquid neque harum beatae quasi sed similique doloribus officia commodi quibusdam.</p>
+                                            <p>
+                                                Aquí encontrarás una amplia variedad de snacks irresistibles para satisfacer tus antojos en cualquier momento. Conoce nuestra selección y encuentra tu snack favorito, siempre listo para ser disfrutado.
+                                            </p>
                                     </div>  
                                 </figure>
                             </div>
                     
     
                         </div>
-    
+    {{--
                         <div class="card"  style=" display:flex; justify-content:center;">
                             <img src="{{asset('imgs\recommended.png')}}" class="card-img-top img-fluid" alt="..."  style=" display:flex; justify-content:center;">
                         </div>
@@ -141,7 +148,7 @@
     
                         </section>
     
-    
+    --}}
     
     
     

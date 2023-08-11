@@ -1,3 +1,4 @@
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     function agregarAlCarrito(nombre, precio) {
         const formData = new FormData();
@@ -11,17 +12,25 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}',
                 },
             })
-            .then(response => response.json())
+            .then(response => response.text()) // Obtener el contenido de la respuesta como texto
             .then(data => {
-                console.log(data);
+                console.log(data); // Imprimir el contenido para verificar
+                mostrarAlerta('¡Producto Agregado!', 'El producto ha sido agregado al carrito.', 'success');
             })
             .catch(error => {
                 console.error('Error al agregar al carrito:', error);
             });
-        alert('Se ha agregado el producto al carrito ');
+    }
+
+    function mostrarAlerta(titulo, mensaje, tipo) {
+        Swal.fire({
+            title: titulo,
+            text: mensaje,
+            icon: tipo,
+            confirmButtonColor: '#6A75ED',
+        });
     }
 </script>
-
 <x-app-layout>
     <x-slot name="header">
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -108,5 +117,8 @@
                 {{-- Fin Cards del menú --}}
 
 
+        </div>
     </div>
+</ul>
+</div>
 </x-app-layout>

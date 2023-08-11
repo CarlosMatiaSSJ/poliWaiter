@@ -1,5 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <a href="{{ route('agregarAlimento') }}" type="button"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Nuevo
             Alimento</a>
@@ -7,6 +8,25 @@
 
 
     <div class="py-12">
+                    @if (session()->has('success_edit'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Alimento Actualizado',
+                            text: '{{ session('success_edit') }}',
+                        });
+                    </script>
+                @endif
+
+                @if (session()->has('success_delete'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Alimento Eliminado',
+                            text: '{{ session('success_delete') }}',
+                        });
+                    </script>
+                @endif
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
@@ -20,7 +40,7 @@ justify-content: center; margin-bottom:10px">
     margin-left: 30px;"><u><a href="{{ route('ajustesAlimentos') }}"
                                 style="color:#6A75ED;"> Alimentos</a> </u> </li>
                     <li style=" display: inline;
-    margin-left: 30px;"> <a
+    margin-left: 30px;"> <a hidden
                             href="{{ route('ajustesIngredientes') }}">Ingredientes</a></li>
 
                 </ul>

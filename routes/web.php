@@ -38,7 +38,7 @@ Route::middleware([
     Route::get('/menu/snacks',[controladorAlimentos::class,'mostrarMenuSnacks'])->name('menuSnacks');
 
 
-  
+    
 
 
     //Stripe
